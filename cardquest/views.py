@@ -22,7 +22,7 @@ class TrainerList(ListView):
     
 class PokemonCardList(ListView):
     model = PokemonCard
-    context_object_name = 'collection'
+    context_object_name = 'pokemon'
     template_name = 'collections.html'
     paginate_by = 15    
     
