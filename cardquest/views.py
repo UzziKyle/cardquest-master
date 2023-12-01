@@ -1,6 +1,6 @@
 from typing import Any
 from django.views.generic.list import ListView
-from cardquest.models import PokemonCard, Trainer
+from .models import PokemonCard, Trainer, Collection
 
 
 # Create your views here.
@@ -17,5 +17,18 @@ class TrainerList(ListView):
     model = Trainer
     context_object_name = 'trainer'
     template_name = 'trainers.html'
+    paginate_by = 15    
+    
+    
+class PokemonCardList(ListView):
+    model = PokemonCard
+    context_object_name = 'collection'
+    template_name = 'collections.html'
+    paginate_by = 15    
+    
+class CollectionList(ListView):
+    model = Collection
+    context_object_name = 'collection'
+    template_name = 'collections.html'
     paginate_by = 15    
     
