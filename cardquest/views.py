@@ -7,11 +7,10 @@ from .models import PokemonCard, Trainer, Collection
 class HomePageView(ListView):
     model = PokemonCard
     context_object_name = 'home'
-    template_name = 'base.html'
+    template_name = 'home.html'
     
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         return super().get_context_data(**kwargs)
-    
     
 class TrainerList(ListView):
     model = Trainer
@@ -22,9 +21,10 @@ class TrainerList(ListView):
     
 class PokemonCardList(ListView):
     model = PokemonCard
-    context_object_name = 'pokemon'
-    template_name = 'collections.html'
+    context_object_name = 'pokemon-card'
+    template_name = 'pokemon-cards.html'
     paginate_by = 15    
+    
     
 class CollectionList(ListView):
     model = Collection
