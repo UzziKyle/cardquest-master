@@ -1,6 +1,6 @@
 from typing import Any
 from django.core.management.base import BaseCommand
-from cardquest.models import PokemonCard, Trainer
+from cardquest.models import PokemonCard, Trainer, Collection
 
 
 class Command(BaseCommand):
@@ -9,8 +9,9 @@ class Command(BaseCommand):
     def handle(self, *args: Any, **options: Any) -> str | None:
         self.create_pokemon_cards()
         self.create_trainers()
+        self.create_collections()
         
-    def create_pokemon_cards(self):
+    def create_pokemon_cards(self) -> None:
         # Create Pokemon Card instances
         # Pokemon cards and assign them to variables
         card1 = PokemonCard(name="Pikachu", rarity="Rare",hp=60, card_type="Electric", attack="Thunder Shock",
@@ -84,7 +85,7 @@ class Command(BaseCommand):
             'Successfully created Pokemon Cards.'
         ))
         
-    def create_trainers(self):
+    def create_trainers(self) -> None:
         trainer1 = Trainer(name="Ash", birthdate= "1987-05-22",location= "Pallet Town",email= "ash@pokemon.com") 
         trainer2 = Trainer(name= "Gary",birthdate= "1984-08-06",location= "Pallet Town",email= "gary@pokemon.com")
         trainer3 = Trainer(name="Giovanni",birthdate= "1983-06-01",location= "Viridian City",email= "giovanni@teamrocket.com")
@@ -104,3 +105,21 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS(
             'Successfully created Trainers.'
         ))
+        
+    def create_collections(self) -> None:
+        pokemons = PokemonCard.objects.all()
+        
+        for pokemon in pokemons[:10]:
+            collection = Collection(card=pokemon, trainer=Trainer.objects.get(name='Uzzi'), collection_date='2023-12-12')
+            
+            collection.save()
+            
+        for pokemon in pokemons[10:]:
+            collection = Collection(card=pokemon, trainer=Trainer.objects.get(name='Kyle'), collection_date='2023-12-12')
+            
+            collection.save()
+            
+        self.stdout.write(self.style.SUCCESS(
+            'Successfully created Collections.'
+        ))
+        
