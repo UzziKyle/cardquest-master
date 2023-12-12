@@ -20,21 +20,21 @@ class PokemonCardCreateView(CreateView):
     model = PokemonCard
     form_class = PokemonCardForm
     template_name = 'pokemon_card_add.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('pokemon-card')
     
 
 class PokemonCardUpdateView(UpdateView):
     model = PokemonCard
     form_class = PokemonCardForm
     template_name = 'pokemon_card_edit.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('pokemon-card')
     
 
 class PokemonCardDeleteView(DeleteView):
     model = PokemonCard
     form_class = PokemonCardForm
     template_name = 'pokemon_card_del.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('pokemon-card')
     
     
 class TrainerList(ListView):

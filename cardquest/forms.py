@@ -15,4 +15,4 @@ class PokemonCardForm(ModelForm):
     class Meta:
         model = PokemonCard
         fields = '__all__'
-                
+            
