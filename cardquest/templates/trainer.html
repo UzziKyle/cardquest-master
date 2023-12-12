@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+
+{% block navbar %}
+    <section class="navbar">
+    <a href="{% url "home" %}" class="btn"> Home </a>
+    <a href="{% url "trainer-list" %}" class="btn" id="active"> Trainer </a>
+    <a href="{% url "pokemon-card" %}" class="btn"> Pokemon Card </a>
+    <a href="{% url "collection-list" %}" class="btn"> Collection </a>
+    </section>
+{% endblock navbar %}
+
+{% block content %}
+<a href="{% url 'trainer-add' %}" class="btn btn-outline-primary">Add New Trainer</a><br>
+<section class="trainers-container">
+    <table class="styled-table">
+        <tbody>
+            <tr>
+            <th>Trainer Name</th>
+            <th>Birthdate</th>
+            <th>Location</th>
+            <th>Email</th>
+            <th>Actions</th>
+            </tr>
+    
+            {% for object in object_list %}
+            <tr>
+                <td>{{ object.name }}</td>
+                <td>{{ object.birthdate }}</td>
+                <td>{{ object.location }}</td>
+                <td>{{ object.email }}</td>
+                <td>
+                    <a href="trainer_list/{{ object.id }}" >Edit</a> |
+                    <a href="trainer_list/{{ object.id }}/delete" >Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% comment %} {% include 'includes/pagination.html' %} {% endcomment %}
+{% endblock content %}
