@@ -2,7 +2,7 @@ from typing import Any
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from .models import PokemonCard, Trainer, Collection
-from .forms import TrainerForm, PokemonCardForm
+from .forms import TrainerForm, PokemonCardForm, CollectionForm
 from django.urls import reverse_lazy
 
 
@@ -15,28 +15,7 @@ class HomePageView(ListView):
     
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         return super().get_context_data(**kwargs)
-   
-
-class PokemonCardCreateView(CreateView):
-    model = PokemonCard
-    form_class = PokemonCardForm
-    template_name = 'pokemon_card_add.html'
-    success_url = reverse_lazy('pokemon-card')
-    
-
-class PokemonCardUpdateView(UpdateView):
-    model = PokemonCard
-    form_class = PokemonCardForm
-    template_name = 'pokemon_card_edit.html'
-    success_url = reverse_lazy('pokemon-card')
-    
-
-class PokemonCardDeleteView(DeleteView):
-    model = PokemonCard
-    form_class = PokemonCardForm
-    template_name = 'pokemon_card_del.html'
-    success_url = reverse_lazy('pokemon-card')
-    
+        
     
 class TrainerList(ListView):
     model = Trainer
@@ -69,7 +48,28 @@ class PokemonCardList(ListView):
     model = PokemonCard
     context_object_name = 'pokemon-card'
     template_name = 'pokemon_card.html'
-    paginate_by = 15 
+    paginate_by = 10 
+    
+
+class PokemonCardCreateView(CreateView):
+    model = PokemonCard
+    form_class = PokemonCardForm
+    template_name = 'pokemon_card_add.html'
+    success_url = reverse_lazy('pokemon-card')
+    
+
+class PokemonCardUpdateView(UpdateView):
+    model = PokemonCard
+    form_class = PokemonCardForm
+    template_name = 'pokemon_card_edit.html'
+    success_url = reverse_lazy('pokemon-card')
+    
+
+class PokemonCardDeleteView(DeleteView):
+    model = PokemonCard
+    form_class = PokemonCardForm
+    template_name = 'pokemon_card_del.html'
+    success_url = reverse_lazy('pokemon-card')
 
     
 class CollectionList(ListView):
@@ -77,4 +77,26 @@ class CollectionList(ListView):
     context_object_name = 'collection'
     template_name = 'collections.html'
     paginate_by = 15
+    
+
+class CollectionCreateView(CreateView):
+    model = Collection
+    form_class = CollectionForm
+    template_name = 'collections_add.html'
+    success_url = reverse_lazy('collection-list')
+    
+
+class CollectionUpdateView(UpdateView):
+    model = Collection
+    form_class = CollectionForm
+    template_name = 'collections_edit.html'
+    success_url = reverse_lazy('collection-list')
+    
+
+class CollectionDeleteView(DeleteView):
+    model = Collection
+    form_class = CollectionForm
+    template_name = 'collections_del.html'
+    success_url = reverse_lazy('collection-list')
+
     

@@ -8,49 +8,6 @@
     <a href="{% url "collection-list" %}" class="btn"> Collection </a>
     </section>
 {% endblock navbar %}
+
 {% block content %}
-<a href="{% url 'pokemon-card-add' %}" class="btn btn-outline-primary">Add New Pokemon Card</a><br>
-<section class="trainers-container">
-    <table class="styled-table">
-        <tbody>
-            <tr>
-            <th>Trainer Name</th>
-            <th>Rarity</th>
-            <th>HP</th>
-            <th>Card Type</th>
-            <th>Attack</th>
-            <th>Description</th>
-            <th>Weakness</th>
-            <th>Card Number</th>
-            <th>Release Date</th>
-            <th>Evolution Stage</th>
-            <th>Abilities</th>
-            <th>Actions</th>
-            </tr>
-    
-            {% for object in object_list %}
-            <tr>
-                <td>{{ object.name }}</td>
-                <td>{{ object.rarity }}</td>
-                <td>{{ object.hp }}</td>
-                <td>{{ object.card_type }}</td>
-                <td>{{ object.attack }}</td>
-                <td>{{ object.description }}</td>
-                <td>{{ object.weakness }}</td>
-                <td>{{ object.card_number }}</td>
-                <td>{{ object.release_date }}</td>
-                <td>{{ object.evolution_stage }}</td>
-                <td>{{ object.abilities }}</td>
-                <td>
-                    <a href="pokemon_card_list/{{ object.id }}" >Edit</a> |
-                    <a href="pokemon_card_list/{{ object.id }}/delete" >Delete</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</section>
-<div>
-    {% include 'includes/pagination.html' %}
-</div>
 {% endblock content %}

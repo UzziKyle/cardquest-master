@@ -16,3 +16,9 @@ class PokemonCardForm(ModelForm):
         model = PokemonCard
         fields = '__all__'
             
+            
+class CollectionForm(ModelForm):
+    class Meta:
+        model = Collection
+        fields = '__all__'
+            
