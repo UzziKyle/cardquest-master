@@ -42,13 +42,15 @@
                 <td>{{ object.evolution_stage }}</td>
                 <td>{{ object.abilities }}</td>
                 <td>
-                    <a href="pokemon_card/{{ object.id }}" >Edit</a> |
-                    <a href="pokemon_card//{{ object.id }}/delete" >Delete</a>
+                    <a href="pokemon_card_list/{{ object.id }}" >Edit</a> |
+                    <a href="pokemon_card_list/{{ object.id }}/delete" >Delete</a>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </section>
-{% comment %} {% include 'includes/pagination.html' %} {% endcomment %}
+<div>
+    {% include 'includes/pagination.html' %}
+</div>
 {% endblock content %}
