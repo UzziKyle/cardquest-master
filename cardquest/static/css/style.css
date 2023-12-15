@@ -19,7 +19,7 @@
   }
   
   main {
-    min-height: 59.75vh;
+    min-height: 69.75vh;
     padding-top: 60px;
     padding-bottom: 60px; /* Adjust as needed */
   }
@@ -63,7 +63,7 @@
   /*FOOTER*/
   footer {
     /* display: none; */
-    /* position: fixed; */
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,7 +72,7 @@
     width: 100%;
     background-color: red;
     color: white;
-    /* bottom: 0; */
+    bottom: 0;
     text-align: center;
     padding: 32px 0;
   }
