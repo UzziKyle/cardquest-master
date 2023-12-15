@@ -13,10 +13,10 @@ urlpatterns = [
     path('trainer_list/<pk>/delete', views.TrainerDeleteView.as_view(), name='trainer-delete'),
     
     # Pokemons
-    path('pokemon_card', views.PokemonCardList.as_view(), name='pokemon-card'),
-    path('pokemon_card/add', views.PokemonCardCreateView.as_view(), name='pokemon-card-add'),
-    path('pokemon_card/<pk>', views.PokemonCardUpdateView.as_view(), name='pokemon-card-update'),
-    path('pokemon_card/<pk>/delete', views.PokemonCardDeleteView.as_view(), name='pokemon-card-delete'),
+    path('pokemoncard_list', views.PokemonCardList.as_view(), name='pokemoncard-list'),
+    path('pokemoncard_list/add', views.PokemonCardCreateView.as_view(), name='pokemoncard-add'),
+    path('pokemoncard_list/<pk>', views.PokemonCardUpdateView.as_view(), name='pokemoncard-update'),
+    path('pokemoncard_list/<pk>/delete', views.PokemonCardDeleteView.as_view(), name='pokemoncard-delete'),
     
     # Collections
     path('collection_list', views.CollectionList.as_view(), name='collection-list'),

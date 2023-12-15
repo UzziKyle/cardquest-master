@@ -4,14 +4,14 @@
     <section class="navbar">
     <a href="{% url "home" %}" class="btn"> Home </a>
     <a href="{% url "trainer-list" %}" class="btn"> Trainer </a>
-    <a href="{% url "pokemon-card" %}" class="btn"> Pokemon Card </a>
+    <a href="{% url "pokemoncard-list" %}" class="btn"> Pokemon Card </a>
     <a href="{% url "collection-list" %}" class="btn" id="active"> Collection </a>
     </section>
 {% endblock navbar %}
 
 {% block content %}
 <a href="{% url 'collection-list-add' %}" class="btn btn-outline-primary">Add New Collection</a><br>
-<section class="trainers-container">
+<section class="collection-container">
     <table class="styled-table">
         <tbody>
             <tr>
